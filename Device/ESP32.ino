@@ -50,8 +50,7 @@ void loop() {
     if (strcmp(incomingPacket, "IP") == 0) {
       // send back a reply, to the IP address and port we got the packet from
       Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-      const char* myIp = WiFi.localIP().toString().c_str();
-      Udp.write((const uint8_t*)myIp, strlen(myIp));
+      Udp.write((const uint8_t*)"OK", 2);
       Udp.endPacket();
     }
   }

@@ -51,7 +51,7 @@ void loop() {
     if (strcmp(incomingPacket, "IP") == 0) {
       // send back a reply, to the IP address and port we got the packet from
       Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
-      Udp.write(WiFi.localIP().toString().c_str());
+      Udp.write("OK");
       Udp.endPacket();
     }
   }
